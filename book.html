@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Book edition at The Library.">
+  <title>Book | The Library</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="book-page">
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="The Library home">
+      <span class="brand-mark">L</span>
+      <span>
+        <strong>The Library</strong>
+        <small>Books & Editions</small>
+      </span>
+    </a>
+
+    <nav class="nav" aria-label="Main navigation">
+      <a href="index.html#catalogue">Catalogue</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#reading-room">Reading Room</a>
+    </nav>
+  </header>
+
+  <main id="bookPage">
+    <div class="loading">Opening the book…</div>
+  </main>
+
+  <footer class="footer">
+    <div>
+      <span class="footer-brand">The Library</span>
+      <p>A small independent collection of books and editions.</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html#catalogue">Catalogue</a>
+      <a href="index.html#about">About</a>
+    </div>
+    <div class="copyright">© <span id="year"></span> The Library</div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+    const book = books.find(item => item.id === id);
+    const container = document.getElementById("bookPage");
+
+    if (!book) {
+      document.title = "Book Not Found | The Library";
+      container.innerHTML = `
+        <section class="book-not-found">
+          <p class="eyebrow">The Catalogue</p>
+          <h1>Book not found.</h1>
+          <p>The requested volume could not be found in the catalogue.</p>
+          <a class="button button-gold" href="index.html#catalogue">Return to the catalogue</a>
+        </section>`;
+    } else {
+      document.title = `${book.title} | The Library`;
+      container.innerHTML = `
+        <section class="book-choice">
+          <a class="back-link" href="index.html#catalogue">← Back to the catalogue</a>
+
+          <div class="book-choice-grid">
+            <div class="large-book-cover">
+              <div class="card-cover">
+                <span class="cover-rule"></span>
+                <span class="cover-small">THE LIBRARY</span>
+                <span class="cover-title">${escapeHtml(book.coverTitle).replace(/\\n/g, "<br>")}</span>
+                <span class="cover-small">${escapeHtml(book.type)}</span>
+                <span class="cover-rule"></span>
+              </div>
+            </div>
+
+            <div class="book-choice-content">
+              <p class="eyebrow">${escapeHtml(book.type)}</p>
+              <h1>${escapeHtml(book.title)}</h1>
+              <p class="book-choice-author">${escapeHtml(book.author)}</p>
+              <p class="book-choice-description">${escapeHtml(book.description)}</p>
+
+              <div class="choice-box">
+                <p class="choice-label">Choose your edition</p>
+
+                <a class="choice-option" href="${book.readUrl}" target="_blank" rel="noopener">
+                  <span class="choice-icon">⌁</span>
+                  <span>
+                    <strong>Read the PDF</strong>
+                    <small>Open the digital edition in your browser.</small>
+                  </span>
+                  <span class="choice-arrow">→</span>
+                </a>
+
+                <a class="choice-option" href="${book.luluUrl}" target="_blank" rel="noopener">
+                  <span class="choice-icon">▣</span>
+                  <span>
+                    <strong>Order a physical copy</strong>
+                    <small>Purchase a printed edition through Lulu.</small>
+                  </span>
+                  <span class="choice-arrow">→</span>
+                </a>
+              </div>
+
+              <p class="book-note">Read digitally now, or keep a physical copy on your shelf.</p>
+            </div>
+          </div>
+        </section>`;
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
