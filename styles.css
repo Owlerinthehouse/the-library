@@ -471,3 +471,239 @@ h2 { margin: 0; font: 500 clamp(40px, 5vw, 67px)/.95 var(--serif); letter-spacin
   .large-book-cover { max-width: 300px; }
   .book-choice-content h1 { font-size: 54px; }
 }
+
+/* =========================================
+   THE LIBRARY — ENGLISH PUBLISHING HOUSE
+   ========================================= */
+
+:root {
+  --forest: #142d22;
+  --forest-2: #1b3b2c;
+  --forest-3: #294b38;
+  --gold: #b69a60;
+  --gold-soft: #d6c18e;
+  --paper: #f5f0e5;
+  --cream: #eae2d2;
+  --ink: #211f19;
+}
+
+/* Traditional editorial appearance */
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+/* Publisher's masthead */
+.site-header {
+  min-height: 112px;
+  padding: 25px 8vw;
+  background: var(--forest);
+  border-bottom: 3px double var(--gold);
+}
+
+.brand-mark {
+  width: 43px;
+  height: 43px;
+  border: 1px solid var(--gold);
+  font-family: Georgia, serif;
+  font-size: 23px;
+}
+
+.brand strong {
+  font-size: 21px;
+  letter-spacing: .16em;
+}
+
+.brand small {
+  letter-spacing: .25em;
+  font-size: 9px;
+}
+
+.nav {
+  gap: 34px;
+}
+
+.nav a {
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: .2em;
+}
+
+/* Grand opening panel */
+.hero {
+  min-height: 690px;
+  padding: 100px 10vw;
+  background:
+    radial-gradient(ellipse at 80% 50%, rgba(65, 91, 64, .35), transparent 40%),
+    linear-gradient(120deg, #142d22, #0b1c14);
+}
+
+.hero::before {
+  inset: 24px;
+  border: 1px solid rgba(182, 154, 96, .45);
+}
+
+.hero h1 {
+  font-size: clamp(64px, 8vw, 116px);
+  letter-spacing: -.065em;
+  line-height: .88;
+}
+
+.hero .eyebrow {
+  letter-spacing: .3em;
+}
+
+.hero-text {
+  max-width: 500px;
+  font-family: Georgia, serif;
+  font-size: 17px;
+  line-height: 1.9;
+  color: #ded9ca;
+}
+
+.button {
+  font-family: Arial, sans-serif;
+  letter-spacing: .16em;
+  font-size: 9px;
+}
+
+.button-gold {
+  background: var(--gold);
+  border-color: var(--gold);
+}
+
+/* Old printed-paper announcement */
+.notice {
+  background: #e9e1d1;
+  border-top: 1px solid #d3c5aa;
+  border-bottom: 3px double #c9b995;
+  padding: 22px 9vw;
+}
+
+/* Catalogue */
+.section {
+  padding: 115px 9vw;
+}
+
+.section-heading {
+  padding-bottom: 30px;
+  border-bottom: 1px solid #c9b995;
+}
+
+.section-heading h2 {
+  font-size: clamp(45px, 5vw, 68px);
+}
+
+.section-intro {
+  font-family: Georgia, serif;
+  font-style: italic;
+  line-height: 1.9;
+}
+
+.book-grid {
+  gap: 32px;
+}
+
+.book-card {
+  padding: 12px;
+  background: #faf7ef;
+  border: 1px solid #d4c9b5;
+  box-shadow: 0 3px 12px rgba(35, 30, 18, .035);
+}
+
+.book-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(35, 30, 18, .12);
+}
+
+.card-cover {
+  background: #1b3829;
+  border: 3px double var(--gold);
+}
+
+.card-title {
+  font-size: 29px;
+}
+
+.card-author {
+  font-family: Georgia, serif;
+}
+
+.card-description {
+  font-family: Georgia, serif;
+  line-height: 1.8;
+}
+
+/* Reading room */
+.reading-room {
+  border-top: 3px double var(--gold);
+  border-bottom: 3px double var(--gold);
+  background:
+    linear-gradient(rgba(13, 35, 25, .96), rgba(13, 35, 25, .96)),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 60px,
+      rgba(200, 164, 93, .06) 61px 62px
+    );
+}
+
+.reading-room h2 {
+  font-size: clamp(48px, 5vw, 72px);
+}
+
+/* About the publisher */
+.about-section {
+  background: #eae3d5;
+  border-bottom: 1px solid #d2c5ae;
+}
+
+.about-card h2 {
+  line-height: 1;
+}
+
+.about-card p:not(.eyebrow) {
+  font-family: Georgia, serif;
+  line-height: 2;
+}
+
+/* Footer */
+.footer {
+  background: #0b1c14;
+  border-top: 3px double var(--gold);
+}
+
+.footer-brand {
+  font-size: 29px;
+  letter-spacing: .04em;
+}
+
+/* Individual book pages */
+.book-choice {
+  background: var(--paper);
+}
+
+.choice-box {
+  background: #eae3d5;
+  border: 1px solid #cdbf9f;
+}
+
+.choice-option strong {
+  font-size: 21px;
+}
+
+/* Mobile refinement */
+@media (max-width: 620px) {
+  .site-header {
+    min-height: 90px;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 75px 7vw;
+  }
+
+  .section {
+    padding: 75px 7vw;
+  }
+}
