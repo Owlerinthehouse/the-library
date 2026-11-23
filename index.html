@@ -178,7 +178,12 @@
     </div>
   </footer>
 
-  <script src="app.js?v=3"></script>
+  <script>
+  const version = new Date().getTime();
+  const script = document.createElement("script");
+  script.src = "app.js?v=" + version;
+  document.body.appendChild(script);
+</script>
 </body>
 </html>
 
