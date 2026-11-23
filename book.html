@@ -1,13 +1,302 @@
+
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Book edition at The Library.">
-  <title>Book | The Library</title>
+
+  <meta name="theme-color" content="#102b21">
+  <meta name="description" content="Explore carefully prepared literary, philosophical and historical editions from The Library.">
+
+  <title>The Library — Books & Editions</title>
+
   <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* BOOK PAGE */
+
+    .book-page {
+      background: #fbf8f0;
+    }
+
+    .book-editorial {
+      padding: 35px 7vw 100px;
+      background:
+        radial-gradient(ellipse at 12% 35%, #eee8d9 0%, transparent 48%),
+        #fbf8f0;
+    }
+
+    .book-back {
+      display: inline-block;
+      margin-bottom: 55px;
+      color: #536458;
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .book-back:hover {
+      color: #b18b48;
+    }
+
+    .book-layout {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(260px, 390px) 1fr;
+      gap: clamp(45px, 8vw, 110px);
+      align-items: center;
+    }
+
+    .book-artwork {
+      padding: 12px;
+      background: #fffdf8;
+      border: 1px solid #e1d7c4;
+      box-shadow: 0 25px 65px rgba(20, 39, 27, .13);
+    }
+
+    .book-artwork .card-cover {
+      min-height: 510px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      padding: 45px 28px;
+      background: #102b21;
+      color: #f9f4e8;
+      border: 1px solid #c8a45d;
+      text-align: center;
+    }
+
+    .book-artwork .cover-small {
+      color: #c8a45d;
+      font-size: 10px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+
+    .book-artwork .cover-title {
+      display: block;
+      color: #fffaf0;
+      font-family: Georgia, serif;
+      font-size: clamp(35px, 4vw, 48px);
+      line-height: 1.15;
+      text-align: center;
+    }
+
+    .book-artwork .cover-rule {
+      display: block;
+      width: 65%;
+      height: 1px;
+      background: #c8a45d;
+    }
+
+    .book-details {
+      max-width: 620px;
+    }
+
+    .book-kicker {
+      margin: 0 0 22px;
+      color: #9b7942;
+      font-size: 11px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    .book-details h1 {
+      margin: 0;
+      color: #172b20;
+      font-family: Georgia, serif;
+      font-size: clamp(43px, 5.5vw, 72px);
+      font-weight: 400;
+      line-height: 1.04;
+    }
+
+    .book-author {
+      margin: 20px 0 25px;
+      color: #77694f;
+      font-family: Georgia, serif;
+      font-size: 22px;
+      font-style: italic;
+    }
+
+    .book-description {
+      max-width: 530px;
+      color: #55594f;
+      font-family: Georgia, serif;
+      font-size: 17px;
+      line-height: 1.9;
+    }
+
+    .book-divider {
+      width: 70px;
+      height: 2px;
+      margin: 30px 0;
+      background: #c8a45d;
+    }
+
+    .edition-heading {
+      margin-bottom: 15px;
+      color: #8c7959;
+      font-size: 10px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    .book-read-button {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      width: 100%;
+      padding: 23px 26px;
+      background: #102b21;
+      border: 1px solid #c8a45d;
+      color: #fffdf6;
+      text-decoration: none;
+      transition: background .25s, transform .25s;
+      box-sizing: border-box;
+    }
+
+    .book-read-button:hover {
+      background: #244b3a;
+      transform: translateY(-3px);
+    }
+
+    .book-read-button strong {
+      display: block;
+      font-family: Georgia, serif;
+      font-size: 21px;
+      font-weight: 400;
+    }
+
+    .book-read-button small {
+      display: block;
+      margin-top: 7px;
+      color: #c9d0c9;
+      font-size: 11px;
+      letter-spacing: .04em;
+    }
+
+    .book-read-arrow {
+      color: #c8a45d;
+      font-size: 27px;
+    }
+
+    .book-print-link {
+      display: inline-block;
+      margin-top: 24px;
+      padding-bottom: 5px;
+      color: #244b3a;
+      border-bottom: 1px solid #c8a45d;
+      font-family: Georgia, serif;
+      font-size: 16px;
+      font-style: italic;
+      text-decoration: none;
+    }
+
+    .book-print-link:hover {
+      color: #9b7942;
+    }
+
+    .book-print-coming {
+      margin-top: 22px;
+      color: #858276;
+      font-family: Georgia, serif;
+      font-size: 14px;
+      font-style: italic;
+    }
+
+    .book-reading-note {
+      margin-top: 25px;
+      color: #898579;
+      font-family: Georgia, serif;
+      font-size: 13px;
+      font-style: italic;
+    }
+
+    .book-about-section {
+      padding: 75px 7vw;
+      background: #f3eee3;
+      border-top: 1px solid #e4dac7;
+    }
+
+    .book-about-inner {
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .book-about-inner .section-kicker {
+      color: #9b7942;
+      font-size: 10px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    .book-about-inner h2 {
+      color: #172b20;
+      font-family: Georgia, serif;
+      font-size: 35px;
+      font-weight: 400;
+    }
+
+    .book-about-inner p {
+      max-width: 760px;
+      color: #55594f;
+      font-family: Georgia, serif;
+      font-size: 16px;
+      line-height: 1.9;
+    }
+
+    .book-not-found {
+      min-height: 55vh;
+      padding: 100px 8vw;
+      text-align: center;
+    }
+
+    .book-not-found h1 {
+      font-family: Georgia, serif;
+      font-size: 48px;
+      font-weight: 400;
+    }
+
+    @media (max-width: 800px) {
+      .book-editorial {
+        padding: 25px 6vw 70px;
+      }
+
+      .book-back {
+        margin-bottom: 35px;
+      }
+
+      .book-layout {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .book-artwork {
+        width: min(100%, 300px);
+        margin: 0 auto;
+      }
+
+      .book-artwork .card-cover {
+        min-height: 410px;
+      }
+
+      .book-details h1 {
+        font-size: 46px;
+      }
+
+      .book-about-section {
+        padding: 55px 7vw;
+      }
+    }
+  </style>
 </head>
+
 <body class="book-page">
+
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="The Library home">
       <span class="brand-mark">L</span>
@@ -33,14 +322,19 @@
       <span class="footer-brand">The Library</span>
       <p>A small independent collection of books and editions.</p>
     </div>
+
     <div class="footer-links">
       <a href="index.html#catalogue">Catalogue</a>
       <a href="index.html#about">About</a>
     </div>
-    <div class="copyright">© <span id="year"></span> The Library</div>
+
+    <div class="copyright">
+      © <span id="year"></span> The Library
+    </div>
   </footer>
 
-  <script src="app.js"></script>
+  <script src="app.js?v=3"></script>
+
   <script>
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
@@ -49,65 +343,166 @@
 
     if (!book) {
       document.title = "Book Not Found | The Library";
+
       container.innerHTML = `
         <section class="book-not-found">
-          <p class="eyebrow">The Catalogue</p>
+          <p class="book-kicker">The Catalogue</p>
           <h1>Book not found.</h1>
           <p>The requested volume could not be found in the catalogue.</p>
-          <a class="button button-gold" href="index.html#catalogue">Return to the catalogue</a>
-        </section>`;
+          <a class="button button-gold" href="index.html#catalogue">
+            Return to the catalogue
+          </a>
+        </section>
+      `;
     } else {
-      document.title = `${book.title} | The Library`;
-      container.innerHTML = `
-        <section class="book-choice">
-          <a class="back-link" href="index.html#catalogue">← Back to the catalogue</a>
 
-          <div class="book-choice-grid">
-            <div class="large-book-cover">
+      const isScience = book.id === "the-science-of-religions";
+
+      const description = isScience
+        ? "An annotated English translation of Émile Burnouf's 1872 work La Science des Religions. This edition includes a translator's introduction and historical commentary, presenting a nineteenth-century study of comparative religion in its intellectual and historical context."
+        : book.description;
+
+      const pageTitle = `${book.title} by ${book.author} | The Library`;
+
+      const pageDescription = isScience
+        ? "Read The Science of Religions by Émile Burnouf (1872), an annotated English translation of La Science des Religions, with a translator's introduction and historical context."
+        : `${book.title} by ${book.author}. Explore this carefully prepared edition from The Library.`;
+
+      document.title = pageTitle;
+
+      const metaDescription = document.querySelector('meta[name="description"]');
+      metaDescription.setAttribute("content", pageDescription);
+
+      container.innerHTML = `
+        <section class="book-editorial">
+
+          <a class="book-back" href="index.html#catalogue">
+            ← Return to the catalogue
+          </a>
+
+          <div class="book-layout">
+
+            <div class="book-artwork">
               <div class="card-cover">
                 <span class="cover-rule"></span>
                 <span class="cover-small">THE LIBRARY</span>
-                <span class="cover-title">${escapeHtml(book.coverTitle).replace(/\\n/g, "<br>")}</span>
-                <span class="cover-small">${escapeHtml(book.type)}</span>
+                <span class="cover-title">
+                  ${escapeHtml(book.coverTitle).replace(/\n/g, "<br>")}
+                </span>
+                <span class="cover-small">
+                  ${escapeHtml(book.type)}
+                </span>
                 <span class="cover-rule"></span>
               </div>
             </div>
 
-            <div class="book-choice-content">
-              <p class="eyebrow">${escapeHtml(book.type)}</p>
+            <div class="book-details">
+
+              <p class="book-kicker">
+                ${escapeHtml(book.type)}
+              </p>
+
               <h1>${escapeHtml(book.title)}</h1>
-              <p class="book-choice-author">${escapeHtml(book.author)}</p>
-              <p class="book-choice-description">${escapeHtml(book.description)}</p>
 
-              <div class="choice-box">
-                <p class="choice-label">Choose your edition</p>
+              <p class="book-author">
+                ${escapeHtml(book.author)}
+              </p>
 
-                <a class="choice-option" href="${book.readUrl}" target="_blank" rel="noopener">
-                  <span class="choice-icon">⌁</span>
-                  <span>
-                    <strong>Read the PDF</strong>
-                    <small>Open the digital edition in your browser.</small>
-                  </span>
-                  <span class="choice-arrow">→</span>
-                </a>
+              <div class="book-divider"></div>
 
-                <a class="choice-option" href="${book.luluUrl}" target="_blank" rel="noopener">
-                  <span class="choice-icon">▣</span>
-                  <span>
-                    <strong>Order a physical copy</strong>
-                    <small>Purchase a printed edition through Lulu.</small>
-                  </span>
-                  <span class="choice-arrow">→</span>
-                </a>
-              </div>
+              <p class="book-description">
+                ${escapeHtml(description)}
+              </p>
 
-              <p class="book-note">Read digitally now, or keep a physical copy on your shelf.</p>
+              <div class="book-divider"></div>
+
+              <p class="edition-heading">
+                The Digital Reading Edition
+              </p>
+
+              <a
+                class="book-read-button"
+                href="${escapeHtml(book.readUrl)}"
+                target="_blank"
+                rel="noopener"
+              >
+                <span>
+                  <strong>Read the Book Online</strong>
+                  <small>Open the complete PDF edition in your browser</small>
+                </span>
+                <span class="book-read-arrow">→</span>
+              </a>
+
+              ${
+                book.luluUrl
+                  ? `
+                    <a
+                      class="book-print-link"
+                      href="${escapeHtml(book.luluUrl)}"
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      Order a printed edition →
+                    </a>
+                  `
+                  : `
+                    <p class="book-print-coming">
+                      A printed edition will be available soon.
+                    </p>
+                  `
+              }
+
+              <p class="book-reading-note">
+                Read digitally now, and return when the printed edition becomes available.
+              </p>
+
             </div>
           </div>
-        </section>`;
+        </section>
+
+        ${
+          isScience
+            ? `
+              <section class="book-about-section">
+                <div class="book-about-inner">
+                  <p class="section-kicker">About this edition</p>
+                  <h2>A nineteenth-century study of religion</h2>
+                  <p>
+                    First published in French in 1872 as
+                    <em>La Science des Religions</em>, Émile Burnouf's
+                    work belongs to the nineteenth-century development
+                    of comparative religious scholarship.
+                  </p>
+                  <p>
+                    Burnouf examines religious traditions through
+                    historical, linguistic and comparative approaches,
+                    drawing upon texts and ideas associated with the
+                    Vedic tradition, Zoroastrianism and Christianity.
+                  </p>
+                  <p>
+                    This English edition includes a translator's
+                    introduction and annotations that situate the
+                    original work in its historical and intellectual
+                    setting. Its nineteenth-century interpretations
+                    should be read critically, as historical scholarship
+                    rather than as a statement of contemporary academic
+                    consensus.
+                  </p>
+                  <p>
+                    Originally published in Paris by Maisonneuve et Cie,
+                    1872.
+                  </p>
+                </div>
+              </section>
+            `
+            : ""
+        }
+      `;
     }
 
-    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
   </script>
+
 </body>
 </html>
