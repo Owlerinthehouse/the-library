@@ -27,8 +27,20 @@ const books = [
     readUrl: "books/the-united-kingdom.pdf",
     luluUrl: "https://www.lulu.com/",
     featured: false
-  }
+  },
 
+    {
+    id: "the-science-of-religions",
+    title: "The Science of Religions",
+    author: "Émile Burnouf",
+    type: "Annotated English Translation",
+    description: "An annotated English translation of Émile Burnouf's 1872 study of comparative religion, with a translator's introduction and historical context.",
+    coverTitle: "The Science\nof Religions",
+    readUrl: "books/the-science-of-religions.pdf",
+    luluUrl: "",
+    featured: true
+  }
+   
 ];
 
 
